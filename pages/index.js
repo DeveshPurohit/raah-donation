@@ -14,10 +14,10 @@ export default function Home() {
         <h1 className="text-5xl font-bold mt-5">Welcome to RAAH</h1>
 
         <h2 className='mt-24 text-2xl'>
-          <Link href={"/login"}><alt className='hover:text-pink-600'>&rarr; Login</alt></Link>
+          <Link href={"/login"}><a className='hover:text-pink-600'>&rarr; Login</a></Link>
         </h2>
         <h2 className='mt-8 text-2xl'>
-          <Link href={"/signup"}><alt className='hover:text-pink-600'>&rarr; SignUp </alt></Link>
+          <Link href={"/signup"}><a className='hover:text-pink-600'>&rarr; SignUp </a></Link>
         </h2>
       
     </div>
