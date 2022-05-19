@@ -17,7 +17,7 @@ export default function Home() {
           <Link href={"/login"}><a className='hover:text-pink-600'>&rarr; Login</a></Link>
         </h2>
         <h2 className='mt-8 text-2xl'>
-          <Link href={"/signup"}><a className='hover:text-pink-600'>&rarr; SignUp </a></Link>
+          <Link href={"/signup"}><a className='hover:text-pink-6002'>&rarr; SignUp </a></Link>
         </h2>
       
     </div>
