@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Donation = () => {
   const router = useRouter()
@@ -69,17 +70,29 @@ const Donation = () => {
         draggable
         pauseOnHover
       />
-      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+      <div className="min-h-full flex flex-row items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
-          <div>
+        <div>
             <img
-              className="mx-auto h-16 w-auto"
+              className="mx-auto h-10 w-auto"
               src={"/raah.jpeg"}
               alt="Workflow"
             />
-            <h1 className="mt-6 text-center text-4xl font-extrabold text-gray-900">
-              Enter Donation
-            </h1>
+            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              Add Donation
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Or
+              <Link href={"/dashboard"}>
+                <a
+                  href="#"
+                  className="font-medium text-pink-600 hover:text-pink-500"
+                >
+                  {" "}
+                  view your donation{" "}
+                </a>
+              </Link>
+            </p>
           </div>
           <form
             onSubmit={handleSubmit}

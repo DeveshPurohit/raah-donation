@@ -74,7 +74,7 @@ const SignUp = () => {
               alt="Workflow"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign up for an account
+              Sign up to become Donor
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or
@@ -84,7 +84,7 @@ const SignUp = () => {
                   className="font-medium text-pink-600 hover:text-pink-500"
                 >
                   {" "}
-                  Login{" "}
+                  Already a donor? Login{" "}
                 </a>
               </Link>
             </p>

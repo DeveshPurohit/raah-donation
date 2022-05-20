@@ -11,16 +11,43 @@ const Dashboard = ({ donaters }) => {
     setNm(e.target.value)
   }
   return (
-    
-    <div className="container ">
-      <h1 className=" m-6 text-center font-bold text-3xl">Donor&apos;s Area</h1>
+    <>
+    <div className="sidebar flex flex-col  w-64 h-[100vh] overflow-y-scroll absolute top-0 left-0 bg-pink-300  px-8 py-10">
+    <Link href={"/"}>
+            <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
+              Home
+            </button>
+          </Link>
+    <Link href={"/donation"}>
+            <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
+              Add Donation
+            </button>
+          </Link>
+    <Link href={"/signup"}>
+            <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
+              Add New Donor
+            </button>
+          </Link>
+    <Link href={"/"}>
+            <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
+              Our Work
+            </button>
+          </Link>
+    <Link href={"/"}>
+            <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
+              Meet the Team
+            </button>
+          </Link>
+    </div>
+    <div className="container flex flex-col ">
+      <h1 className=" m-6 text-center font-bold text-3xl">View your Donation</h1>
       <div className="m-10 flex justify-center">
         <input
           value={nm}
           onChange={handleChange}
           type="search"
           className=" form-control relative  min-w-0 block w-96 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-          placeholder="Search"
+          placeholder="Search for the Donor name"
           aria-label="Search"
           aria-describedby="button-addon2"
         />
@@ -31,30 +58,30 @@ const Dashboard = ({ donaters }) => {
         </svg>
       </span>
       </div>
-      <table className="min-w-full m-10 border">
-        <thead className="bg-gray border-b">
+      <table className="m-auto justify-center border-2 border-black">
+        <thead className=" bg-gray font-semibold">
           <tr className="">
             <th
               scope="col"
-              className="text-sm font-medium text-gray-900 px-6 py-4  text-left"
+              className="text-sm font-medium text-gray-900 px-4 py-2  "
             >
               Name
             </th>
             <th
               scope="col"
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 "
             >
               Email
             </th>
             <th
               scope="col"
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 "
             >
               Pan
             </th>
             <th
               scope="col"
-              className="text-sm font-medium text-gray-900 px-6 py-4 text-left"
+              className="text-sm font-medium text-gray-900 px-6 py-4 "
             >
               Amount
             </th>
@@ -66,7 +93,7 @@ const Dashboard = ({ donaters }) => {
             {return (
               <tr
                 key={donaters[item]._id}
-                className="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100"
+                className="bg-white border-2 border-black transition duration-300 ease-in-out hover:bg-gray-100"
               >
                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   {donaters[item].name}
@@ -82,14 +109,11 @@ const Dashboard = ({ donaters }) => {
                 </td>
               </tr>
             );}
-            else{
-              <h2>No Match Found</h2>
-            }
           })}
         </tbody>
       </table>
-      <h2 className="text-center">{nm == '' ?'Search the name in search bar':''}</h2>
     </div>
+  </>
   );
 };
 
