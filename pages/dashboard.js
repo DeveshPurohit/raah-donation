@@ -12,7 +12,7 @@ const Dashboard = ({ donaters }) => {
   }
   return (
     <>
-    <div className="sidebar flex flex-col  w-64 h-[100vh] overflow-y-scroll absolute top-0 left-0 bg-pink-300  px-8 py-10">
+    <div className="sidebar flex flex-col  w-64 h-[100vh] overflow-y-scroll absolute top-0 left-0 bg-blue-900  px-8 py-10">
     <Link href={"/"}>
             <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
               Home
