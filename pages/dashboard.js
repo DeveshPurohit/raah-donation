@@ -7,9 +7,7 @@ import { useState } from "react";
 const Dashboard = ({ donaters }) => {
   console.log(donaters);
   const [nm, setNm] = useState('');
-  const handleChange = (e) => {
-    setNm(e.target.value)
-  }
+
   return (
     <>
     <div className="sidebar flex flex-col  w-64 h-[100vh] overflow-y-scroll absolute top-0 left-0 bg-blue-900  px-8 py-10">
@@ -44,7 +42,7 @@ const Dashboard = ({ donaters }) => {
       <div className="m-10 flex justify-center">
         <input
           value={nm}
-          onChange={handleChange}
+          onChange={(e) => {setNm(e.target.value)}}
           type="search"
           className=" form-control relative  min-w-0 block w-96 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
           placeholder="Search for the Donor name"
@@ -58,7 +56,7 @@ const Dashboard = ({ donaters }) => {
         </svg>
       </span>
       </div>
-      <table className="m-auto justify-center border-2 border-black">
+      {nm.length > 0 && <table className="m-auto justify-center border-2 border-black">
         <thead className=" bg-gray font-semibold">
           <tr className="">
             <th
@@ -89,7 +87,7 @@ const Dashboard = ({ donaters }) => {
         </thead>
         <tbody>
           {Object.keys(donaters).map((item) => {
-            if(donaters[item].name == nm)
+            if(donaters[item].name.toLowerCase().includes(nm.toLowerCase()))
             {return (
               <tr
                 key={donaters[item]._id}
@@ -111,7 +109,7 @@ const Dashboard = ({ donaters }) => {
             );}
           })}
         </tbody>
-      </table>
+      </table>}
     </div>
   </>
   );
