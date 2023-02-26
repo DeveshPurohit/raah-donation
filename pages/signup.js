@@ -1,60 +1,49 @@
-import React from "react";
-import Link from "next/link";
-import { useState } from "react";
+import { useState } from 'react';
+import Link from 'next/link';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
 
-const SignUp = () => {
+function SignUpPage() {
   const router = useRouter()
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleChange = (e) => {
-    if (e.target.name == "name") {
-      setName(e.target.value);
-    } 
-    else if (e.target.name == "email") {
-      setEmail(e.target.value);
-    } 
-    else if (e.target.name == "password") {
-      setPassword(e.target.value);
-    }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = { name, email, password };
-    let res = await fetch("http://localhost:3000/api/signup", {
-      method: "POST", // or 'PUT'
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-    let response = await res.json();
-    console.log(response);
-    setEmail("");
-    setName("");
-    setPassword("");
-    toast.success("Your Account has been created!", {
-      position: "top-center",
-      autoClose: 1000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
-    setTimeout(() => {
-      router.push("http://localhost:3000/login")  
-    }, 2000)
-  };
+  const handleSignUp = async (e) => {
+        e.preventDefault();
+        const data = { name, email, password };
+        let res = await fetch("http://localhost:3000/api/signup", {
+          method: "POST", // or 'PUT'
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+        let response = await res.json();
+        console.log(response);
+        setEmail("");
+        setName("");
+        setPassword("");
+        toast.success("Your Account has been created!", {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        setTimeout(() => {
+          router.push("http://localhost:3000/login")  
+        }, 2000)
+      };
+    
 
   return (
-    <div>
-      <ToastContainer
+    <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
+       <ToastContainer
         position="top-center"
         autoClose={1000}
         hideProgressBar={false}
@@ -65,117 +54,110 @@ const SignUp = () => {
         draggable
         pauseOnHover
       />
-      <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-md w-full space-y-8">
-          <div>
-            <img
-              className="mx-auto h-10 w-auto"
+      <div className="relative py-3 sm:max-w-xl sm:mx-auto">
+        <div className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+          <div className="max-w-md mx-auto">
+            <div className="flex items-center space-x-5">
+              
+                <img
+              className="h-14 w-14"
               src={"/raah.jpeg"}
               alt="Workflow"
             />
-            <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Sign up to become Donor
-            </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or
-              <Link href={"/login"}>
-                <a
-                  href="#"
-                  className="font-medium text-pink-600 hover:text-pink-500"
-                >
-                  {" "}
-                  Already a donor? Login{" "}
-                </a>
-              </Link>
-            </p>
-          </div>
-          <form
-            onSubmit={handleSubmit}
-            className="mt-8 space-y-6"
-            method="POST"
-          >
-            <input type="hidden" name="remember" value="true" />
-            <div className="rounded-md shadow-sm space-y-4">
-              <div>
-                <label htmlFor="name" className="sr-only">
-                  Name
+              <h1 className="text-gray-600 font-semibold text-2xl">Sign up</h1>
+            </div>
+            <div className="divide-y divide-gray-200">
+              <form className="py-8 text-base" onSubmit={handleSignUp}>
+                <div className="space-y-4">
+                  <div className="form-group">
+                    <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                      Full name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      autoComplete="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="mt-1 p-1 focus:ring-pink-600 focus:border-pink-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="email" className="text-sm font-medium text-gray-700">
+                      Email address
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="mt-1 p-1 focus:ring-pink-600 focus:border-pink-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="password" className="text-sm font-medium text-gray-700">
+                      Password
+                    </label>
+                    <input
+                      id="password"
+                      name="password"
+                      type="password"
+                      autoComplete="new-password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      className="mt-1 p-1 focus:ring-pink-600 focus:border-pink-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                      />
+                      </div>
+                      <div className="form-group">
+                <label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
+                  Confirm password
                 </label>
                 <input
-                  value={name}
-                  onChange={handleChange}
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="email"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  value={email}
-                  onChange={handleChange}
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-pink-500 focus:border-pink-500 focus:z-10 sm:text-sm"
-                  placeholder="Email address"
-                />
-              </div>
-              <div>
-                <label htmlFor="password" className="sr-only">
-                  Password
-                </label>
-                <input
-                  value={password}
-                  onChange={handleChange}
-                  id="password"
-                  name="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   type="password"
-                  autoComplete="current-password"
+                  autoComplete="new-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   required
-                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-pink-500 focus:border-bl0ue-500 focus:z-10 sm:text-sm"
-                  placeholder="Password"
+                  className="mt-1 p-1 focus:ring-pink-600 focus:border-pink-600 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                 />
               </div>
             </div>
 
-            <div className="flex items-center justify-between"></div>
-
-            <div>
+            <div className="pt-6 text-center">
               <button
+                disabled={password!==confirmPassword}
                 type="submit"
-                className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+                className={password===confirmPassword?"w-full px-4 py-2 font-bold text-white bg-pink-600 rounded-full hover:bg-green-700 focus:outline-none focus:shadow-outline-green active:bg-green-800":"w-full px-4 py-2 font-bold text-white bg-pink-300 rounded-full hover:bg-red-700 focus:outline-none focus:shadow-outline-green active:bg-green-800"}
               >
-                <span className="absolute left-0 inset-y-0 flex items-center pl-3">
-                  <svg
-                    className="h-5 w-5 text-pink-500 group-hover:text-pink-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </span>
-                Sign Up
+                Sign up
               </button>
+             {password!==confirmPassword&&<p>password unmatched</p>}
             </div>
           </form>
+          <div className="pt-6 text-center text-sm">
+            Already have an account?{' '}
+            <Link href="/login">
+              <a className="text-pink-600 hover:text-green-700 font-semibold">
+                Log in here
+              </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  </div>
+</div>
+);
+}
 
-export default SignUp;
+export default SignUpPage;
+
