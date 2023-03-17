@@ -31,7 +31,7 @@ const Dashboard = ({ donaters }) => {
               Our Work
             </button>
           </Link>
-    <Link href={"/"}>
+    <Link href={"/team"}>
             <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
               Meet the Team
             </button>

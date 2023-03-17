@@ -7,6 +7,4 @@ const DonaterSchema = new mongoose.Schema({
     amount: {type: Number, required: true},
   },{timestamps: true});
 
-  // mongoose.models = {}
-  // export default mongoose.model("User", UserSchema);
   export default mongoose.models.Donater || mongoose.model("Donater", DonaterSchema);
