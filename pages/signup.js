@@ -14,7 +14,7 @@ function SignUpPage() {
   const handleSignUp = async (e) => {
         e.preventDefault();
         const data = { name, email, password };
-        let res = await fetch("http://localhost:3000/api/signup", {
+        let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/signup`, {
           method: "POST", // or 'PUT'
           headers: {
             "Content-Type": "application/json",
@@ -36,7 +36,7 @@ function SignUpPage() {
           progress: undefined,
         });
         setTimeout(() => {
-          router.push("http://localhost:3000/login")  
+          router.push(`${process.env.NEXT_PUBLIC_HOST}/login`)  
         }, 2000)
       };
     

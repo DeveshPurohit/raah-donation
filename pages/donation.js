@@ -30,7 +30,7 @@ const Donation = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = { name, email, pan, amount };
-    let res = await fetch("http://localhost:3000/api/donater", {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/donater`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
