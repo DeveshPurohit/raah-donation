@@ -28,7 +28,7 @@ const Login = () => {
   const handleLogIn = async (e) => {
     e.preventDefault();
     const data = { email, password };
-    let res = await fetch(`${NEXT_PUBLIC_HOST}/api/login`, {
+    let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/login`, {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
@@ -50,7 +50,7 @@ const Login = () => {
         progress: undefined,
       });
       setTimeout(() => {
-        router.push(`${NEXT_PUBLIC_HOST}/donation`);
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/donation`);
       }, 1500);
     } else {
       toast.error(response.error, {
