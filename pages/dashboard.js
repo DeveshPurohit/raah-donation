@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 
 const Dashboard = ({ donaters }) => {
-  console.log(donaters);
   const [nm, setNm] = useState('');
 
   return (

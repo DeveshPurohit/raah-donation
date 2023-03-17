@@ -38,7 +38,6 @@ const Donation = () => {
       body: JSON.stringify(data),
     });
     let response = await res.json();
-    console.log(response);
     setEmail("");
     setName("");
     setPan("");
