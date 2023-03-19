@@ -15,9 +15,9 @@ const Dashboard = ({ donaters }) => {
               Home
             </button>
           </Link>
-    <Link href={"/donation"}>
+    <Link href={"/causes"}>
             <button className="text-white bg-pink-500 border-0 my-10 mx-4 py-2  focus:outline-none hover:bg-pink-600 rounded text-md">
-              Add Donation
+              View Causes
             </button>
           </Link>
     <Link href={"/signup"}>

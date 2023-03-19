@@ -50,7 +50,7 @@ const Login = () => {
         progress: undefined,
       });
       setTimeout(() => {
-        router.push(`${process.env.NEXT_PUBLIC_HOST}/donation`);
+        router.push(`${process.env.NEXT_PUBLIC_HOST}/causes`);
       }, 1500);
     } else {
       toast.error(response.error, {
