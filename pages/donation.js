@@ -7,10 +7,12 @@ import Link from "next/link";
 
 const Donation = () => {
   const router = useRouter()
+  const data = router.query;
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [pan, setPan] = useState();
   const [amount, setAmount] = useState();
+  const [cause, setCause] = useState(data.title)
 
   const handleChange = (e) => {
     if (e.target.name == "name") {
@@ -29,7 +31,7 @@ const Donation = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const data = { name, email, pan, amount };
+    const data = { name, email, pan, cause, amount };
     let res = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/donater`, {
       method: "POST", // or 'PUT'
       headers: {
@@ -141,6 +143,22 @@ const Donation = () => {
                   onChange={handleChange}
                   id="pan"
                   name="pan"
+                  type="text"
+                  autoComplete="current-pan"
+                  required
+                  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-pink-500 focus:border-bl0ue-500 focus:z-10 sm:text-sm"
+                  
+                />
+              </div>
+              <div >
+                <label htmlFor="cause" className="">
+                  Cause
+                </label>
+                <input
+                disabled
+                  value={cause}
+                  id="cause"
+                  name="cause"
                   type="text"
                   autoComplete="current-pan"
                   required

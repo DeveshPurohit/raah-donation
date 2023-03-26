@@ -14,12 +14,16 @@ const causes = ({causes}) => {
                 <div className="overflow-hidden bg-white m-4 shadow-lg flex flex-col md:flex-row justify-center" key={causes[item]._id}>
                                                    <div className=" h-26 w-full overflow-hidden"> <img src={causes[item].image} alt="" /> </div>
                                                    <div className="grid m-2 p-2">
-                                                       <div className="font-bold text-lg text-black m-2 "><u>{causes[item].title}
-                                                       </u> </div>
+                                                    <Link href={`/cause/${causes[item].title}`}><div className="cursor-pointer font-bold text-lg text-black m-2 "><u>{causes[item].title}
+                                                       </u> </div></Link>
+                                                       
                                                        <div className="font-semibold text-lg text-black m-2 ">Required amount - {causes[item].amount}
                                                        </div>
                                                        <div className="text-gray-500 m-2 text-sm"><a href="">{causes[item].description}</a></div>
-                                                       <Link href="/donation"><div>
+                                                       <Link href={{
+    pathname: '/donation',
+    query: causes[item] 
+  }}><div>
               <button
                 className="text-lg group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
               >

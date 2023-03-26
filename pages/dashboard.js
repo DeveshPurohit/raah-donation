@@ -3,8 +3,10 @@ import mongoose from "mongoose";
 import Donater from "../models/Donater";
 import Link from "next/link";
 import { useState } from "react";
+import moment from 'moment';
 
 const Dashboard = ({ donaters }) => {
+  moment.locale();
   const [nm, setNm] = useState('');
 
   return (
@@ -74,13 +76,19 @@ const Dashboard = ({ donaters }) => {
               scope="col"
               className="text-sm font-medium text-gray-900 px-6 py-4 "
             >
-              Pan
+              Cause
             </th>
             <th
               scope="col"
               className="text-sm font-medium text-gray-900 px-6 py-4 "
             >
               Amount
+            </th>
+            <th
+              scope="col"
+              className="text-sm font-medium text-gray-900 px-6 py-4 "
+            >
+              Date
             </th>
           </tr>
         </thead>
@@ -99,10 +107,13 @@ const Dashboard = ({ donaters }) => {
                   {donaters[item].email}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                  {donaters[item].pan}
+                  {donaters[item].cause}
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   ₹{donaters[item].amount}
+                </td>
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                  {moment(donaters[item].createdAt).format('LL')}
                 </td>
               </tr>
             );}

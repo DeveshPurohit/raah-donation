@@ -3,8 +3,8 @@ import connectDb from "../../middleware/mongoose";
 
 const handler = async (req, res) => {
   if (req.method == "POST") {
-    const {name , email, pan, amount} = req.body
-    let d = Donater({name, email, pan, amount})
+    const {name , email, pan, cause, amount} = req.body
+    let d = Donater({name, email, pan, cause, amount})
     await d.save()
     
     res.status(200).json({ success: "Successfully Donated" });
