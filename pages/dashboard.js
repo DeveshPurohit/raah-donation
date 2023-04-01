@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import moment from 'moment';
 
+
 const Dashboard = ({ donaters }) => {
   moment.locale();
   const [nm, setNm] = useState('');
@@ -114,6 +115,19 @@ const Dashboard = ({ donaters }) => {
                 </td>
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   {moment(donaters[item].createdAt).format('LL')}
+                </td>
+                <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                <Link href={{
+    pathname: `/donor/${donaters[item]._id}`,
+    query: donaters[item] 
+  }}><div>
+              <button
+                className="text-lg group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-pink-600 hover:bg-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500"
+              >
+                
+                Generate Receipt
+              </button>
+            </div></Link>
                 </td>
               </tr>
             );}

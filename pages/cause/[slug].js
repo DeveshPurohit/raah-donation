@@ -4,7 +4,7 @@ import Donater from "../../models/Donater";
 import moment from 'moment';
 
 const Cause = ({donaters}) => {
-  console.log(donaters)
+  var sum = 0
   return (
     <div>
       <h1 className='text-center font-bold text-3xl m-5'>Total Collection</h1>
@@ -67,12 +67,13 @@ const Cause = ({donaters}) => {
                 <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   {moment(donaters[item].createdAt).format('LL')}
                 </td>
+                <div className='hidden'>{sum = sum + donaters[item].amount}</div>
               </tr>
             );}
           })}
         </tbody>
       </table>
-      <h3 className='m-4 text-center font-semibold'>Remaining amount - </h3>
+      <h3 className='m-4 text-center font-semibold'>Total amount - {sum}</h3>
 
     </div>
 
