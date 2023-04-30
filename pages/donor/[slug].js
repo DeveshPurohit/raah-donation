@@ -35,7 +35,7 @@ const Donor = () => {
           Receipt downloaded.
         </button>
         <br/>
-        <Link href={'/dashboard'}><button className="m-4 text-blue-500">
+        <Link href={'/dashboard'}><button className="m-4 text-xl p-2  rounded-lg bg-pink-500">
           go back
         </button></Link>
         

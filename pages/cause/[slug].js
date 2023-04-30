@@ -73,7 +73,7 @@ const Cause = ({donaters}) => {
           })}
         </tbody>
       </table>
-      <h3 className='m-4 text-center font-semibold'>Total amount - {sum}</h3>
+      <h3 className='m-4 text-center font-semibold'>Total amount - ₹{sum}</h3>
 
     </div>
 

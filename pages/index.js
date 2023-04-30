@@ -171,7 +171,7 @@ export default function Home() {
                   </dt>
                   <dd className="mt-2 text-base text-gray-500">
                     You can view your giving history by logging into your
-                    account and clicking on the <strong>My Giving</strong> tab.
+                    account and clicking on the <strong>View your donation</strong> section on dashboard.
                     You can see a list of all the donations you have made, as
                     well as your total giving amount and any tax receipts that
                     have been issued to you.
@@ -185,7 +185,7 @@ export default function Home() {
                   <dd className="mt-2 text-base text-gray-500">
                     Tax receipts are issued automatically for all donations over
                     ₹600. You can access your tax receipts by logging into your
-                    account and clicking on the <strong>My Giving</strong> tab.
+                    account and clicking on the <strong>Generate Receipt</strong> button on dashboard.
                   </dd>
                 </div>
               </dl>
@@ -208,106 +208,29 @@ export default function Home() {
                 href="#"
                 className="text-base text-gray-400 hover:text-gray-100"
               >
-                About
+                Home
               </a>
             </div>
-
-            <div className="px-5 py-2">
+            <Link href={'/causes'}>
+            <div className="px-5 py-2 cursor-pointer">
               <a
-                href="#"
+                className="text-base text-gray-400 hover:text-gray-100"
+                >
+                Causes
+              </a>
+            </div>
+                </Link>
+                <Link href={'/team'}>
+            <div className="px-5 py-2 cursor-pointer">
+              <a
                 className="text-base text-gray-400 hover:text-gray-100"
               >
-                Contact
+                Meet the Team
               </a>
             </div>
-
-            <div className="px-5 py-2">
-              <a
-                href="#"
-                className="text-base text-gray-400 hover:text-gray-100"
-              >
-                Careers
-              </a>
-            </div>
-
-            <div className="px-5 py-2">
-              <a
-                href="#"
-                className="text-base text-gray-400 hover:text-gray-100"
-              >
-                Blog
-              </a>
-            </div>
-            <div className="px-5 py-2">
-              <a
-                href="#"
-                className="text-base text-gray-400 hover:text-gray-100"
-              >
-                Privacy Policy
-              </a>
-            </div>
-
-            <div className="px-5 py-2">
-              <a
-                href="#"
-                className="text-base text-gray-400 hover:text-gray-100"
-              >
-                Terms of Service
-              </a>
-            </div>
+</Link>
           </nav>
 
-          <div className="mt-8 flex justify-center space-x-6">
-            <a href="#" className="text-gray-400 hover:text-gray-100">
-              <span className="sr-only">Facebook</span>
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M17.5 3H6.5C5.12173 3 4 4.12173 4 5.5V18.5C4 19.8783 5.12173 21 6.5 21H17.5C18.8783 21 20 19.8783 20 18.5V5.5C20 4.12173 18.8783 3 17.5 3ZM17 7.5H14C13.4477 7.5 13 7.94772 13 8.5V11.5H15V14H13V21H10V14H8V11.5H10V8.5C10 7.94772 9.55228 7.5 9 7.5H7V11.5H5V14H7V21H4.5C3.94772 21 3.5 20.5523 3.5 20V5.5C3.5 5.22386 3.72386 5 4 5H17C17.2761 5 17.5 5.22386 17.5 5.5V7.5Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-
-            <a href="#" className="text-gray-400 hover:text-gray-100">
-              <span className="sr-only">Twitter</span>
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M21.214 5.33247C20.5642 5.66709 19.8495 5.89368 19.0992 6.00164C19.8721 5.56036 20.4533 4.83025 20.7488 3.94123C19.9911 4.35468 19.1521 4.63458 18.2698 4.76378C17.5567 3.98956 16.5471 3.5 15.464 3.5C13.7272 3.5 12.3466 4.88071 12.3466 6.61739C12.3466 6.91325 12.3823 7."
-                ></path>
-              </svg>
-            </a>
-
-            <a href="#" className="text-gray-400 hover:text-gray-100">
-              <span className="sr-only">LinkedIn</span>
-              <svg
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M5.5 4C4.67157 4 4 4.67157 4 5.5V18.5C4 19.3284 4.67157 20 5.5 20H18.5C19.3284 20 20 19.3284 20 18.5V5.5C20 4.67157 19.3284 4 18.5 4H5.5ZM7 7H17V8.5H7V7ZM7 10H17V11.5H7V10ZM7 13H17V14.5H7V13ZM7 16H17V17.5H7V16Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </a>
-          </div>
         </div>
       </footer>
     </div>

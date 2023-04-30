@@ -25,9 +25,87 @@ const Donation = () => {
       setPan(e.target.value);
     }
     else if (e.target.name == "amount") {
-      setAmount(e.target.value);
+      setAmount(parseInt(e.target.value));
     }
   };
+
+  // const initializeRazorpay = () => {
+  //   return new Promise((resolve) => {
+  //     const script = document.createElement("script");
+  //     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+
+  //     script.onload = () => {
+  //       resolve(true);
+  //     };
+  //     script.onerror = () => {
+  //       resolve(false);
+  //     };
+
+  //     document.body.appendChild(script);
+  //   });
+  // };
+
+  // const makePayment = async () => {
+  //       const res = await initializeRazorpay();
+  //   console.log("in function")
+  //       if (!res) {
+  //         alert("Razorpay SDK Failed to load");
+  //         return;
+  //       }
+    
+  //       // Make API call to the serverless API
+  //       const data = await fetch("/api/razorpay", { method: "POST", amount }).then((t) =>
+  //         t.json()
+  //       );
+  //       console.log(data);
+  //       var options = {
+  //         key: process.env.RAZORPAY_KEY, // Enter the Key ID generated from the Dashboard
+  //         name: "Devesh Pvt Ltd",
+  //         currency: data.currency,
+  //         amount: amount,
+  //         order_id: data.id,
+  //         description: "Thankyou for your precious donation",
+  //         image: "/raah.jpeg",
+  //         handler: function (response) {
+  //           // Validate payment at server - using webhooks is a better idea.
+  //           console.log(response.razorpay_payment_id);
+  //           console.log(response.razorpay_order_id);
+  //           console.log(response.razorpay_signature);
+  //         },
+  //         prefill: {
+  //           name: "Devesh Purohit",
+  //           email: "purohitdev@gmail.com",
+  //           contact: "9876549999",
+  //         },
+  //       };
+    
+  //       const paymentObject = new window.Razorpay(options);
+  //       paymentObject.open();
+  //       // e.preventDefault();
+  //       // const info = { name, email, pan, cause, amount };
+  //       // let ress = await fetch(`${process.env.NEXT_PUBLIC_HOST}/api/donater`, {
+  //       //   method: "POST", // or 'PUT'
+  //       //   headers: {
+  //       //     "Content-Type": "application/json",
+  //       //   },
+  //       //   body: JSON.stringify(data),
+  //       // });
+  //       // let response = await ress.json();
+  //       // setEmail("");
+  //       // setName("");
+  //       // setPan("");
+  //       // setAmount("");
+  //       // toast.success("Thanks for the Donation", {
+  //       //   position: "top-center",
+  //       //   autoClose: 1000,
+  //       //   hideProgressBar: false,
+  //       //   closeOnClick: true,
+  //       //   pauseOnHover: true,
+  //       //   draggable: true,
+  //       //   progress: undefined,
+  //       // });
+    
+  //     };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,6 +135,8 @@ const Donation = () => {
     //   router.push("http://localhost:3000/login")  
     // }, 2000)
   };
+
+  
 
   return (
     <div>

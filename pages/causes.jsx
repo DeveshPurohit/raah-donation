@@ -17,7 +17,7 @@ const causes = ({causes}) => {
                                                     <Link href={`/cause/${causes[item].title}`}><div className="cursor-pointer font-bold text-lg text-black m-2 "><u>{causes[item].title}
                                                        </u> </div></Link>
                                                        
-                                                       <div className="font-semibold text-lg text-black m-2 ">Required amount - {causes[item].amount}
+                                                       <div className="font-semibold text-lg text-black m-2 ">Required amount - ₹{causes[item].amount}
                                                        </div>
                                                        <div className="text-gray-500 m-2 text-sm"><a href="">{causes[item].description}</a></div>
                                                        <Link href={{
